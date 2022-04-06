@@ -10,7 +10,12 @@
 
         public string TestletId { get; }
 
-        public Testlet(
+        public Testlet(string testletId, List<Item> items)
+            : this(testletId, items, new Shuffler())
+        {
+        }
+
+        internal Testlet(
             string testletId,
             List<Item> items,
             IShuffler shuffler)

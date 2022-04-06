@@ -1,6 +1,6 @@
 ﻿namespace TestRandomizer;
 
-public interface IShuffler
+internal interface IShuffler
 {
     List<Item> Shuffle(List<Item> items);
 }

@@ -1,6 +1,6 @@
 ﻿namespace TestRandomizer;
 
-public interface IRandomizer
+internal interface IRandomizer
 {
     int GetRandomValue();
 }

@@ -4,7 +4,11 @@ internal class Shuffler : IShuffler
 {
     private readonly IRandomizer _randomizer;
 
-    public Shuffler(IRandomizer randomizer)
+    public Shuffler() : this(new Randomizer())
+    {
+    }
+
+    internal Shuffler(IRandomizer randomizer)
     {
         _randomizer = randomizer ?? throw new ArgumentNullException(nameof(randomizer));
     }
