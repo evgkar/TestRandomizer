@@ -1,5 +1,6 @@
 ﻿using NSubstitute;
 using Shouldly;
+using TestRandomizer.UnitTests.TestData;
 using Xunit;
 
 namespace TestRandomizer.UnitTests
@@ -13,7 +14,7 @@ namespace TestRandomizer.UnitTests
         public TestletTests()
         {
             _testletId = "testlet";
-            _items = GenerateItems();
+            _items = ItemsData.GenerateItems();
             _shuffler = Substitute.For<IShuffler>();
         }
 
@@ -65,7 +66,7 @@ namespace TestRandomizer.UnitTests
             int itemsCount)
         {
             // Arrange
-            List<Item> items = GenerateItems(itemsCount);
+            List<Item> items = ItemsData.GenerateItems(itemsCount);
 
             // Act && Assert
             var exception = Should.Throw<ArgumentException>(
@@ -85,7 +86,7 @@ namespace TestRandomizer.UnitTests
             int operationalItemsCount)
         {
             // Arrange
-            List<Item> items = GenerateItems(10, operationalItemsCount);
+            List<Item> items = ItemsData.GenerateItems(10, operationalItemsCount);
 
             // Act && Assert
             var exception = Should.Throw<ArgumentException>(
@@ -110,11 +111,11 @@ namespace TestRandomizer.UnitTests
         }
 
         [Fact]
-        public void GivenTestlet_WhenRandomizeIsCalled_ThenReturnesShuffledItems()
+        public void GivenTestlet_WhenRandomizeIsCalled_ThenReturnsShuffledItems()
         {
             // Arrange
             ITestlet testlet = new Testlet(_testletId, _items, _shuffler);
-            List<Item> shuffledItems = GenerateItems(50, 30);
+            List<Item> shuffledItems = ItemsData.GenerateItems(50, 30);
             _shuffler.Shuffle(_items).Returns(shuffledItems);
 
             // Act
@@ -122,21 +123,6 @@ namespace TestRandomizer.UnitTests
 
             // Assert
             result.ShouldBe(shuffledItems);
-        }
-
-        private List<Item> GenerateItems(int count = 10, int operationalItemsCount = 6)
-        {
-            var items = new List<Item>(count);
-            for (int i = 1; i <= count; i++)
-            {
-                items.Add(new Item(
-                    $"Item{i}",
-                    i <= operationalItemsCount
-                        ? ItemTypeEnum.Operational
-                        : ItemTypeEnum.Pretest));
-            }
-
-            return items;
         }
     }
 }
