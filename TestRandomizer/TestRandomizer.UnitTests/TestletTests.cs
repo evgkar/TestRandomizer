@@ -72,7 +72,7 @@ namespace TestRandomizer.UnitTests
             var exception = Should.Throw<ArgumentException>(
                 () => new Testlet(_testletId, items, _shuffler));
 
-            exception.Message.ShouldBe(
+            exception.Message.ShouldStartWith(
                 "Collection 'items' must contain 10 elements.");
             exception.ParamName.ShouldBe("items");
         }
@@ -92,7 +92,7 @@ namespace TestRandomizer.UnitTests
             var exception = Should.Throw<ArgumentException>(
                 () => new Testlet(_testletId, items, _shuffler));
 
-            exception.Message.ShouldBe(
+            exception.Message.ShouldStartWith(
                 "Collection 'items' must contain 6 operational items and 4 pretest items.");
             exception.ParamName.ShouldBe("items");
         }

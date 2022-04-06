@@ -4,7 +4,7 @@ public class Item
 {
     public Item(string itemId, ItemTypeEnum itemType)
     {
-        ItemId = itemId;
+        ItemId = itemId ?? throw new ArgumentNullException(nameof(itemId));
         ItemType = itemType;
     }
 
