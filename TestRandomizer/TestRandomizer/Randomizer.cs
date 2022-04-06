@@ -2,8 +2,13 @@
 
 internal class Randomizer : IRandomizer
 {
-    public int GetRandomValue()
+    private readonly Random _random;
+
+    public Randomizer()
     {
-        throw new NotImplementedException();
+        _random = new Random();
     }
+
+    public int GetRandomValue()
+        => _random.Next();
 }
