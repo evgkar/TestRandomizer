@@ -33,6 +33,16 @@ namespace TestRandomizer.UnitTests
         }
 
         [Fact]
+        public void GivenItems_WhenShuffleIsCalled_ThenCallsRandomizerCountTimes()
+        {
+            // Act
+            _shuffler.Shuffle(_items);
+
+            // Assert
+            _randomizer.Received(_items.Count).GetRandomValue();
+        }
+
+        [Fact]
         public void GivenItems_WhenShuffleIsCalled_ThenShuffledListContainsSameNumberOfItems()
         {
             // Arrange
