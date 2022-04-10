@@ -1,4 +1,6 @@
-﻿namespace TestRandomizer.UnitTests.TestData
+﻿using TestRandomizer.Model;
+
+namespace TestRandomizer.UnitTests.TestData
 {
     internal static class ItemsData
     {
@@ -8,10 +10,10 @@
             for (int i = 1; i <= count; i++)
             {
                 items.Add(new Item(
-                    $"Item{i}",
+                    i.ToString(),
                     i <= operationalItemsCount
-                        ? ItemTypeEnum.Operational
-                        : ItemTypeEnum.Pretest));
+                        ? ItemType.Operational
+                        : ItemType.Pretest));
             }
 
             return items;

@@ -1,7 +1,8 @@
 ﻿using Shouldly;
+using TestRandomizer.Model;
 using Xunit;
 
-namespace TestRandomizer.UnitTests
+namespace TestRandomizer.UnitTests.Model
 {
     public class ItemTests
     {
@@ -13,7 +14,7 @@ namespace TestRandomizer.UnitTests
 
             // Act && Assert
             var exception = Should.Throw<ArgumentNullException>(
-                () => new Item(itemId, ItemTypeEnum.Operational));
+                () => new Item(itemId, ItemType.Operational));
 
             exception.ParamName.ShouldBe("itemId");
         }

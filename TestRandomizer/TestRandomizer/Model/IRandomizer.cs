@@ -1,4 +1,4 @@
-﻿namespace TestRandomizer;
+﻿namespace TestRandomizer.Model;
 
 internal interface IRandomizer
 {
