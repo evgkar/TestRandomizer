@@ -158,7 +158,7 @@ namespace TestRandomizer.UnitTests
             yield return new[]
             {
                 ItemsData.GenerateItems(),
-                (object) Enumerable.Range(0, 20).ToArray(),
+                (object) new [] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
                 new List<Item>
                 {
                     new ("7", ItemType.Pretest),
@@ -177,7 +177,7 @@ namespace TestRandomizer.UnitTests
             yield return new[]
             {
                 ItemsData.GenerateItems(),
-                (object) Enumerable.Range(0, 20).Reverse().ToArray(),
+                (object) new [] { 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 },
                 new List<Item>
                 {
                     new ("10", ItemType.Pretest),
